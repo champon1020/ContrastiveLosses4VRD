@@ -1132,7 +1132,7 @@ def assert_and_infer_cfg(make_immutable=True):
 def merge_cfg_from_file(cfg_filename):
     """Load a yaml config file and merge it into the global config."""
     with open(cfg_filename, 'r') as f:
-        yaml_cfg = AttrDict(yaml.load(f))        
+        yaml_cfg = AttrDict(yaml.safe_load(f))
     _merge_a_into_b(yaml_cfg, __C)
 
 
@@ -1191,7 +1191,7 @@ def _merge_a_into_b(a, b, stack=None):
         v = copy.deepcopy(v_)
         v = _decode_cfg_value(v)
         v = _check_and_coerce_cfg_value_type(v, b[k], k, full_key)
-        
+
         # Recursively merge dicts
         if isinstance(v, AttrDict):
             try:

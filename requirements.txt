@@ -1,0 +1,14 @@
+torch==0.4.1.post2
+cython
+matplotlib
+numpy
+scipy
+opencv-python
+pyyaml
+packaging
+pycocotools
+tensorboardX
+tqdm
+pillow
+scikit-image
+cffi
